@@ -196,6 +196,7 @@
             0,
             0,
             0});
+            this.nudYear.ValueChanged += new System.EventHandler(this.nud_ValueChanged);
             // 
             // label5
             // 
@@ -230,6 +231,7 @@
             0,
             0,
             0});
+            this.nudMonth.ValueChanged += new System.EventHandler(this.nud_ValueChanged);
             // 
             // label6
             // 
@@ -354,6 +356,7 @@
             this.Controls.Add(this.btNow);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudMonthBeforeAfter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDayBeforeAfter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudYear)).EndInit();

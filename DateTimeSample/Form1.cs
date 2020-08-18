@@ -76,5 +76,29 @@ namespace DateTimeSample
             //日数計算
             tbDayCountDisp.Text = (now - birth).TotalDays.ToString();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            MaxiumChange();
+        }
+
+        private void nud_ValueChanged(object sender, EventArgs e)
+        {
+            MaxiumChange();
+        }
+
+        //日の上限変更
+        private void MaxiumChange()
+        {
+            nudDay.Maximum = getLastDay((int)nudYear.Value, (int)nudMonth.Value);
+        }
+
+        //月の日数を取得
+        private int getLastDay(int year, int month)
+        {
+            var birthDate = new DateTime(year, month, 1);
+            int days = DateTime.DaysInMonth(birthDate.Year, birthDate.Month); //その月の日数
+            return days;
+        }
     }
 }
