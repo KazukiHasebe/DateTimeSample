@@ -70,35 +70,14 @@ namespace DateTimeSample
         {
             //現在時刻を格納
             DateTime now = new DateTime((int)DateTime.Now.Year, (int)DateTime.Now.Month, (int)DateTime.Now.Day);
+
             //誕生日を格納
-            DateTime birth = new DateTime((int)nudYear.Value, (int)nudMonth.Value, (int)nudDay.Value);
+            DateTime birth = new DateTime((int)mcBirth.SelectionStart.Year, (int)mcBirth.SelectionStart.Month, (int)mcBirth.SelectionStart.Day);
 
             //日数計算
             tbDayCountDisp.Text = (now - birth).TotalDays.ToString();
-        }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            MaxiumChange();
         }
-
-        private void nud_ValueChanged(object sender, EventArgs e)
-        {
-            MaxiumChange();
-        }
-
-        //日の上限変更
-        private void MaxiumChange()
-        {
-            nudDay.Maximum = getLastDay((int)nudYear.Value, (int)nudMonth.Value);
-        }
-
-        //月の日数を取得
-        private int getLastDay(int year, int month)
-        {
-            var birthDate = new DateTime(year, month, 1);
-            int days = DateTime.DaysInMonth(birthDate.Year, birthDate.Month); //その月の日数
-            return days;
-        }
+        
     }
 }
